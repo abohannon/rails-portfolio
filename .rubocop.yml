@@ -1,0 +1,8 @@
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/IndentationWidth:
+  Width: 4
+
+Metrics/LineLength:
+  Max: 9999

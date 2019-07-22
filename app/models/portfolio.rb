@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+  include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
 
   # custom scope, option 1
@@ -12,7 +13,7 @@ class Portfolio < ApplicationRecord
   # You can set defaults in the migration file, as well as here in the model.
   def set_defaults
     # ||= is a shortcut for if *something* == nill { do something }
-    self.main_image ||= 'http://placehold.it/600x400'
-    self.thumb_image ||= 'http://placehold.it/350x200'
+    self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
+    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
   end
 end
